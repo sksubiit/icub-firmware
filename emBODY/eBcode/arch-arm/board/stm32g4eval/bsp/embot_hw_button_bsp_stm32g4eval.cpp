@@ -1,17 +1,14 @@
-
 /*
- * Copyright (C) 2020 iCub Tech - Istituto Italiano di Tecnologia
- * Author:  Marco Accame
- * email:   marco.accame@iit.it
+ * Copyright (C) 2025 iCub Tech - Istituto Italiano di Tecnologia
+ * Author:  SATHISH KUMAR S
+ * email:   sathish.subramani@iit.it
 */
-
 
 // --------------------------------------------------------------------------------------------------------------------
 // - public interface
 // --------------------------------------------------------------------------------------------------------------------
 
 #include "embot_hw_bsp.h"
-
 
 // --------------------------------------------------------------------------------------------------------------------
 // - external dependencies
@@ -35,21 +32,40 @@ using namespace std;
 using namespace embot::core::binary;
 
 // --------------------------------------------------------------------------------------------------------------------
-// - Inclusion of the bsp cpp files
+// - configuration of peripherals and chips. it is done board by board. it contains a check vs correct STM32HAL_BOARD_*
 // --------------------------------------------------------------------------------------------------------------------
 
 #include "embot_hw_bsp_stm32g4eval_config.h"
 
+// --------------------------------------------------------------------------------------------------------------------
+// - support maps for the supported drivers
+// --------------------------------------------------------------------------------------------------------------------
 
-// #include "embot_hw_button_bsp_stm32g4eval.cpp"
-// #include "embot_hw_can_bsp_stm32g4eval.cpp"
-// #include "embot_hw_flash_bsp_stm32g4eval.cpp"
-// #include "embot_hw_gpio_bsp_stm32g4eval.cpp"
-// #include "embot_hw_i2c_bsp_stm32g4eval.cpp"
-// #include "embot_hw_i2ce_bsp_stm32g4eval.cpp"
-// #include "embot_hw_led_bsp_stm32g4eval.cpp"
-// #include "embot_hw_specialize_bsp_stm32g4eval.cpp"
-// #include "embot_hw_tlv493d_bsp_stm32g4eval.cpp"
+// - support map: begin of embot::hw::button
+
+#include "embot_hw_button_bsp.h"
+
+#if !defined(EMBOT_ENABLE_hw_button)
+
+namespace embot { namespace hw { namespace button {
+    
+    inline constexpr BSP thebsp { };
+    inline void BSP::init(embot::hw::BTN h) const {}
+    inline void BSP::onEXTI(const embot::hw::gpio::PROP &p) const {}
+    inline const BSP& getBSP() 
+    {
+        return thebsp;
+    }
+    
+}}}
+
+#else
+
+
+#endif // button
+
+// - support map: end of embot::hw::button
 
 // - end-of-file (leave a blank line after)----------------------------------------------------------------------------
+
 
