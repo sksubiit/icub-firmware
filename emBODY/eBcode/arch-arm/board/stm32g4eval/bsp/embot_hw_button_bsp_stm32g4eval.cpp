@@ -49,10 +49,10 @@ using namespace embot::core::binary;
 
 namespace embot { namespace hw { namespace button {
     
-    inline constexpr BSP thebsp { };
-    inline void BSP::init(embot::hw::BTN h) const {}
-    inline void BSP::onEXTI(const embot::hw::gpio::PROP &p) const {}
-    inline const BSP& getBSP() 
+    constexpr BSP thebsp { };
+    void BSP::init(embot::hw::BTN h) const {}
+    void BSP::onEXTI(const embot::hw::gpio::PROP &p) const {}
+    const BSP& getBSP() 
     {
         return thebsp;
     }
