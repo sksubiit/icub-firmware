@@ -1,4 +1,3 @@
-
 /*
  * Copyright (C) 2020 iCub Tech - Istituto Italiano di Tecnologia
  * Author:  Marco Accame
@@ -19,6 +18,7 @@
 
 #if   defined(STM32HAL_BOARD_STM32G4EVAL)
 
+    #define EMBOT_REDEFINE_hw_bsp_DRIVER_init
     #undef  EMBOT_ENABLE_hw_bsp_specialize
     #define EMBOT_ENABLE_hw_gpio
     #define EMBOT_ENABLE_hw_led
