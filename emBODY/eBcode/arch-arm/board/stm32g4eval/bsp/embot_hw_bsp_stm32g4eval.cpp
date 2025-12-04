@@ -40,17 +40,18 @@ using namespace embot::core::binary;
 
 #include "embot_hw_bsp_stm32g4eval_config.h"
 
-
-// #include "embot_hw_button_bsp_stm32g4eval.cpp"
-// #include "embot_hw_can_bsp_stm32g4eval.cpp"
-// #include "embot_hw_flash_bsp_stm32g4eval.cpp"
-// #include "embot_hw_gpio_bsp_stm32g4eval.cpp"
-// #include "embot_hw_i2c_bsp_stm32g4eval.cpp"
-// #include "embot_hw_i2ce_bsp_stm32g4eval.cpp"
-// #include "embot_hw_led_bsp_stm32g4eval.cpp"
-// #include "embot_hw_specialize_bsp_stm32g4eval.cpp"
-// #include "embot_hw_tlv493d_bsp_stm32g4eval.cpp"
-// #include "embot_hw_bsp_DRIVER_stm32g4eval.cpp"
+#if defined(EMBOT_BSP_IN_A_SINGLE_FILE)
+ #include "embot_hw_button_bsp_stm32g4eval.cpp"
+ #include "embot_hw_can_bsp_stm32g4eval.cpp"
+ #include "embot_hw_flash_bsp_stm32g4eval.cpp"
+ #include "embot_hw_gpio_bsp_stm32g4eval.cpp"
+ #include "embot_hw_i2c_bsp_stm32g4eval.cpp"
+ #include "embot_hw_i2ce_bsp_stm32g4eval.cpp"
+ #include "embot_hw_led_bsp_stm32g4eval.cpp"
+ #include "embot_hw_specialize_bsp_stm32g4eval.cpp"
+ #include "embot_hw_tlv493d_bsp_stm32g4eval.cpp"
+ #include "embot_hw_bsp_DRIVER_stm32g4eval.cpp"
+#endif // EMBOT_BSP_IN_A_SINGLE_FILE
 
 // - end-of-file (leave a blank line after)----------------------------------------------------------------------------
 
