@@ -45,6 +45,9 @@ using namespace embot::core::binary;
 
 #include "embot_hw_i2c_bsp.h"
 
+extern "C" {
+    void MX_I2C3_Init(void);
+}
 
 #if !defined(HAL_I2C_MODULE_ENABLED) || !defined(EMBOT_ENABLE_hw_i2c)
 
@@ -75,12 +78,13 @@ namespace embot { namespace hw { namespace i2c {
             nullptr, nullptr, &i2c3p
         }}        
     }; 
-    void BSP::init(embot::hw::I2C h) const
+    void BSP::init(embot::hw::I2C h) const 
     {
-        if(h == I2C::three)
-        {            
+        // Assuming I2C3 is the handle used
+        if (h == I2C3) 
+        {
             MX_I2C3_Init();
-        }        
+        }
     }
     
     #else
@@ -130,4 +134,3 @@ void DMA1_Channel2_IRQHandler(void)
 
 // - end-of-file (leave a blank line after)----------------------------------------------------------------------------
 
- 

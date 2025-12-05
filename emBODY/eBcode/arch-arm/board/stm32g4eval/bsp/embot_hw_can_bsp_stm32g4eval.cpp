@@ -45,6 +45,11 @@ using namespace embot::core::binary;
 
 #include "embot_hw_can_bsp.h"
 
+extern "C" {
+    void MX_FDCAN1_Init(void);
+    void MX_FDCAN2_Init(void);
+}
+
 #if   !defined(EMBOT_ENABLE_hw_can)
 
 namespace embot { namespace hw { namespace can {
@@ -80,13 +85,18 @@ namespace embot { namespace hw { namespace can {
     
     void BSP::init(embot::hw::CAN h) const 
     {
-        if(h == CAN::one)
-        {            
-            MX_FDCAN1_Init();
-        }
-        else if(h == CAN::two)
-        {            
-            MX_FDCAN2_Init();
+        // Map the abstract handle 'h' to the specific hardware init
+        // Assuming CAN::one maps to FDCAN1 and CAN::two to FDCAN2 based on your board config
+        switch(h)
+        {
+            case CAN::one: 
+                MX_FDCAN1_Init(); 
+                break;
+            case CAN::two: 
+                MX_FDCAN2_Init(); 
+                break;
+            default: 
+                break;
         }
     }
     
