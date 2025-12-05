@@ -41,6 +41,22 @@ extern "C" {
 //    void SystemClock_Config(void);
     void MX_GPIO_Init(void);
     void MX_DMA_Init(void);
+    // void MX_ADC1_Init(void);
+    // void MX_ADC2_Init(void);
+    // void MX_COMP6_Init(void);
+    // void MX_DAC1_Init(void);
+    // void MX_FDCAN1_Init(void);
+    // void MX_FDCAN2_Init(void);
+    // void MX_FMAC_Init(void);
+    // void MX_FMC_Init(void);
+    // void MX_HRTIM1_Init(void);
+    // void MX_I2C3_Init(void);
+    // void MX_RNG_Init(void);
+    // void MX_SPI2_Init(void);
+    // void MX_TIM8_Init(void);
+    // void MX_USART1_UART_Init(void);
+    // void MX_USART3_SMARTCARD_Init(void);
+    // void MX_USB_PCD_Init(void);
 }
 
 
@@ -120,6 +136,22 @@ namespace embot::hw::bsp::DRIVER {
         /* Initialize all configured peripherals */
         MX_GPIO_Init();
         MX_DMA_Init();
+        // MX_ADC1_Init();
+        // MX_ADC2_Init();
+        // MX_COMP6_Init();
+        // MX_DAC1_Init();
+        // MX_FDCAN1_Init();
+        // MX_FDCAN2_Init();
+        // MX_FMAC_Init();
+        // MX_FMC_Init();
+        // MX_HRTIM1_Init();
+        // MX_I2C3_Init();
+        // MX_RNG_Init();
+        // MX_SPI2_Init();
+        // MX_TIM8_Init();
+        // MX_USART1_UART_Init();
+        // MX_USART3_SMARTCARD_Init();
+        // MX_USB_PCD_Init();
 
         return true;
     }
