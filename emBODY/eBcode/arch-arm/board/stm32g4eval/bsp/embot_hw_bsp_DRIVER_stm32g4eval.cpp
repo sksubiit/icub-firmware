@@ -39,8 +39,8 @@ using namespace embot::core::binary;
 
 extern "C" {
 //    void SystemClock_Config(void);
-    void MX_GPIO_Init(void);
-    void MX_DMA_Init(void);
+//    void MX_GPIO_Init(void);
+//    void MX_DMA_Init(void);
     // void MX_ADC1_Init(void);
     // void MX_ADC2_Init(void);
     // void MX_COMP6_Init(void);
@@ -126,16 +126,18 @@ namespace embot::hw::bsp::DRIVER {
         cfg.tick1ms_get = _get1millitick;
         stm32hal_config(&cfg);
 
-        // 2. start the stm32hal. it just calls HAL_Init()
+        // 2. start the stm32hal. it does nothing, so we must call HAL_Init() explicitely
         stm32hal_start();
+        
+        HAL_Init();
 
         // 3. do all the rest of initialisation
         SystemClock_Config();
         SystemCoreClockUpdate();
 
         /* Initialize all configured peripherals */
-        MX_GPIO_Init();
-        MX_DMA_Init();
+        // MX_GPIO_Init();
+        // MX_DMA_Init();
         // MX_ADC1_Init();
         // MX_ADC2_Init();
         // MX_COMP6_Init();
